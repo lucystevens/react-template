@@ -1,30 +1,38 @@
-import './App.css';
-import NavigationBar from 'components/NavigationBar';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
-import { Box } from '@material-ui/core';
-import HomePage from 'components/pages/HomePage/HomePage';
+import { Switch, Route } from "react-router-dom";
+import { HomePage } from 'components/pages';
+import { Footer, NavigationBar } from 'components/common';
+import { Box } from '@mui/material';
+import './App.scss';
 
 function App() {
 
-  return (
-    <Router>
-      <NavigationBar 
-        options={[
-            {text: "Home", link: "/"}
-        ]}>
-          <Box display={"flex"}></Box>
-      </NavigationBar>
+  return (<>
+        <div className="app">
+          <NavigationBar 
+            options={[
+                {text: "Home", link: "/"},
+                {text: "About", dropdown: [
+                  {text: "Dropdown 1", link: "/dropdown-1"},
+                  {text: "Dropdown 2", link: "/dropdown-2"}
+                ]},
+                {text: "External", link: "https://www.google.com"},
+            ]}>
+              <Box display={"flex"}>
+                <a href="/">
+                  <img className="logo" alt="CBP logo" src="/images/logo.png"/>
+                </a>
+              </Box>
+          </NavigationBar>
 
-        <Switch>
-          <Route path="/">
-            <HomePage></HomePage>
-          </Route>
-        </Switch>
-    </Router>
+          <Switch>
+            <Route path="/">
+              <HomePage />
+            </Route>
+          </Switch>
+        </div>
+
+        <Footer/>
+        </>
   );
 }
 

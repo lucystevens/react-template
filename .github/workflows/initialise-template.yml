@@ -1,0 +1,41 @@
+# Replaces certain templated strings on repo creation
+
+name: initialise-template
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+
+  build:
+    if: github.event.head_commit.message == 'Initial commit'
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout current branch
+        uses: actions/checkout@v2
+
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: |
+          echo "$GITHUB_CONTEXT"
+      - name: Replace 'react-template' with repo name
+        run: |
+          sed -i 's/react-template/${{ github.event.repository.name }}/' public/index.html
+          sed -i 's/react-template/${{ github.event.repository.name }}/' manifest.json
+          sed -i 's/react-template/${{ github.event.repository.name }}/' package.json
+          sed -i 's/react-template/${{ github.event.repository.name }}/' package-lock.json
+          sed -i 's/react-template/${{ github.event.repository.name }}/' README.md
+          sed -i 's/react-template/${{ github.event.repository.name }}/' settings.gradle.kts
+      - name: Commit template changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          branch: main
+          commit_message: Template setup for ${{ github.event.repository.name }}

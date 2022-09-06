@@ -1,11 +1,27 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './components/App';
+import { createTheme, ThemeProvider } from '@mui/material';
+import { BrowserRouter as Router } from 'react-router-dom';
 import './index.css';
-import App from 'components/App';
+
+const theme = createTheme({
+  typography: {
+    fontFamily: [
+      "Oswald",
+      "Roboto",
+      "Helvetica Neue",
+      "Arial",
+      "sans-serif"
+    ].join(",")
+  }
+});
+
 
 ReactDOM.render(
-  <React.StrictMode>
+  <ThemeProvider theme={theme}>
+  <Router>
     <App />
-  </React.StrictMode>,
+    </Router>
+  </ThemeProvider>,
   document.getElementById('root')
 );

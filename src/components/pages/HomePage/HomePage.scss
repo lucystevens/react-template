@@ -1,0 +1,68 @@
+.homepage-box {
+    width: 60%;
+    padding: 1rem;
+
+    &.align-left {
+        text-align: left;
+    }
+
+    &.align-center {
+        text-align: center;
+    }
+
+    &.align-right {
+        text-align: right;
+    }
+
+    .MuiTypography-h2.subtitle {
+        margin-bottom: 2rem;
+        font-family: 'Oswald', sans-serif;
+        color: #434343;
+        font-style: italic;
+    }
+
+}
+
+@media (max-width: 1366px) {
+    .homepage-box {
+        width: 75%;
+    }
+    
+    .MuiTypography-root.MuiTypography-h1 {
+        font-size: 4rem;
+    }
+
+    .MuiTypography-root.MuiTypography-h2 {
+        font-size: 2.5rem;
+    }
+
+    .MuiTypography-root.MuiTypography-h3 {
+        font-size: 2rem;
+    }
+
+    .MuiTypography-root.MuiTypography-h4 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 425px) {
+    .homepage-box {
+        width: 90%;
+    }
+
+    .MuiTypography-root.MuiTypography-h1 {
+        font-size: 3rem;
+    }
+
+    .MuiTypography-root.MuiTypography-h2 {
+        font-size: 2rem;
+    }
+
+    .MuiTypography-root.MuiTypography-h3 {
+        font-size: 1.5rem;
+    }
+
+    .MuiTypography-root.MuiTypography-h4 {
+        font-size: 1rem;
+    }
+}

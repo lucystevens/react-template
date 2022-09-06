@@ -1,0 +1,9 @@
+.aligned-content {
+    display: flex;
+    flex-direction: column;
+
+    &.fullsize {
+        width: 100%;
+        height: 100%;
+    }
+}

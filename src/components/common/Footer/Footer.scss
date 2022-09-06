@@ -1,0 +1,29 @@
+.footer {
+    flex-shrink: 0;
+    background-color: black;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 10px 10%;
+
+    div {
+        color: white;
+        text-align: center;
+
+        a {
+            color: aliceblue;
+            text-decoration: none;
+
+            &:hover {
+                color: rgb(6, 131, 240);
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .footer {
+        padding: 10px 10%;
+    }
+}
