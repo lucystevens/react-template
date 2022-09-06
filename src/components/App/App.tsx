@@ -9,6 +9,7 @@ function App() {
   return (<>
         <div className="app">
           <NavigationBar 
+            logoUrl="/images/logo.png"
             options={[
                 {text: "Home", link: "/"},
                 {text: "About", dropdown: [
@@ -16,13 +17,7 @@ function App() {
                   {text: "Dropdown 2", link: "/dropdown-2"}
                 ]},
                 {text: "External", link: "https://www.google.com"},
-            ]}>
-              <Box display={"flex"}>
-                <a href="/">
-                  <img className="logo" alt="CBP logo" src="/images/logo.png"/>
-                </a>
-              </Box>
-          </NavigationBar>
+            ]}/>
 
           <Switch>
             <Route path="/">

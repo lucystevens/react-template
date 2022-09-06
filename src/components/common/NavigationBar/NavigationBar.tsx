@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { Box, Button, Drawer, IconButton, List, ListItem, ListItemText } from "@mui/material"
 import { Menu, ArrowDropDown } from '@mui/icons-material';
 import { useHistory, useLocation } from "react-router-dom";
-import './NavigationBar.css';
+import './NavigationBar.scss';
 
 
 interface NavigationBarProps {
+    logoUrl: string
+    height?: number
     options: NavigationOption[]
 }
 
@@ -16,7 +18,9 @@ export interface NavigationOption {
     dropdown?: NavigationOption[]
 }
 
-export const NavigationBar: React.FC<NavigationBarProps> = ({options, children}) => {
+export const NavigationBar: React.FC<NavigationBarProps> = ({logoUrl, height, options, children}) => {
+
+  let heightPx = height ?? 80
 
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -97,18 +101,18 @@ export const NavigationBar: React.FC<NavigationBarProps> = ({options, children})
         display="flex"
         p={1}
         alignItems="center" 
-        justifyContent="space-between">
+        justifyContent="space-between"
+        style={{height: `${heightPx}px`}}>
 
-        <Box display="flex" alignItems="center" p={1}
-        justifyContent="space-between">
-          {children}
-        </Box>
+          <Box className="logo" display={"flex"} style={{backgroundImage: `url(${logoUrl})`}}>
+
+          </Box>
 
         <Box className="full-menu">
             {options.map(option => 
               <div className="menu-option" key={option.text}>
                 { optionButton(option) }
-                { option.dropdown && <ArrowDropDown className="dropdown-icon" />}
+                { option.dropdown && <ArrowDropDown style={{top: `${heightPx-20}px`}} className="dropdown-icon" />}
                 { dropdownAnchor === option.text && 
                   <div className="dropdown">
                     { option.dropdown?.map(optionButton) }
