@@ -7,7 +7,7 @@ import './NavigationBar.scss';
 
 interface NavigationBarProps {
     logoUrl: string
-    height?: number
+    size: "xs" | "sm" | "md" | "lg" | "xl"
     options: NavigationOption[]
 }
 
@@ -18,9 +18,7 @@ export interface NavigationOption {
     dropdown?: NavigationOption[]
 }
 
-export const NavigationBar: React.FC<NavigationBarProps> = ({logoUrl, height, options, children}) => {
-
-  let heightPx = height ?? 80
+export const NavigationBar: React.FC<NavigationBarProps> = ({logoUrl, size, options}) => {
 
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -97,22 +95,23 @@ export const NavigationBar: React.FC<NavigationBarProps> = ({logoUrl, height, op
     }
   
     return (
-    <Box className={"navigation-bar"}
+    <Box className={`NavigationBar nav-${size}`}
         display="flex"
         p={1}
         alignItems="center" 
-        justifyContent="space-between"
-        style={{height: `${heightPx}px`}}>
+        justifyContent="space-between">
 
-          <Box className="logo" display={"flex"} style={{backgroundImage: `url(${logoUrl})`}}>
-
-          </Box>
+        <Box 
+          className="logo" 
+          display={"flex"} 
+          style={{backgroundImage: `url(${logoUrl})`}}
+          onClick={() => history.push("/") }/>
 
         <Box className="full-menu">
             {options.map(option => 
               <div className="menu-option" key={option.text}>
                 { optionButton(option) }
-                { option.dropdown && <ArrowDropDown style={{top: `${heightPx-20}px`}} className="dropdown-icon" />}
+                { option.dropdown && <ArrowDropDown className="dropdown-icon" />}
                 { dropdownAnchor === option.text && 
                   <div className="dropdown">
                     { option.dropdown?.map(optionButton) }

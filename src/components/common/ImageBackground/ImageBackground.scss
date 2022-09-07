@@ -1,9 +1,8 @@
-.app .background {
+.ImageBackground {
     flex: 1 0 auto;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    min-height: 80vh;
 
     .mask {
         height: 100%;

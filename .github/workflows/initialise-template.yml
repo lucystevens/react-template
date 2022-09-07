@@ -33,7 +33,7 @@ jobs:
           sed -i 's/react-template/${{ github.event.repository.name }}/' package.json
           sed -i 's/react-template/${{ github.event.repository.name }}/' package-lock.json
           sed -i 's/react-template/${{ github.event.repository.name }}/' README.md
-          sed -i 's/react-template/${{ github.event.repository.name }}/' settings.gradle.kts
+          sed -i 's/react-template/${{ github.event.repository.name }}/' src/components/pages/HomePage/HomePage.tsx
       - name: Commit template changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:

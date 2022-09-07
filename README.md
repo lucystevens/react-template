@@ -10,6 +10,11 @@ There are a few initial setup steps to do when you create a new repo from this t
     - `public/manifest.json`
  - Update icons in `public/icons/`
  - Configure `docker-compose.yml` if a backing api is needed
+ - Add necessary secrets:
+    - `DOCKERHUB_TOKEN`
+    - `SSH_HOST`
+    - `SSH_KEY`
+    - `SSH_PASSPHRASE`
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

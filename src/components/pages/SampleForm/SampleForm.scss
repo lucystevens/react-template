@@ -1,0 +1,14 @@
+.SampleForm {
+    display: flex;
+    flex-grow: 1;
+
+    .MuiTypography-root {
+        margin: 1rem;
+    }
+
+    form {
+        .MuiFormControl-root, .MuiButton-root {
+            margin: 1rem;
+        }
+    }
+}

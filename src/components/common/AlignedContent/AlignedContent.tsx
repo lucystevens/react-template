@@ -20,7 +20,7 @@ export const AlignedContent: React.FC<AlignedContentProps> = ({ vAlign, hAlign, 
 
     return (
         <Box 
-            className={`aligned-content ${sizeClass}`} 
+            className={`AlignedContent ${sizeClass}`} 
             style={{justifyContent: justifyContent, alignItems: alignItems}}>
             { children }
         </Box>

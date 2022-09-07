@@ -7,7 +7,7 @@ import './Footer.scss';
 export const Footer: React.FC = () => {
 
     return (
-        <Grid container className="footer">
+        <Grid container className="Footer">
             <Grid item lg={2} md={3} sm={4} xs={6} className="web-credit">
                 Website by <a target="_blank" rel="noreferrer" href="https://github.com/lucystevens">Lucy Stevens</a>
             </Grid>

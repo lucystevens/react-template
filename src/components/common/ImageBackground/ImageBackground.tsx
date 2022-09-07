@@ -13,7 +13,7 @@ export const ImageBackground: React.FC<ImageBackgroundProps> = ({ backgroundImag
     }
 
     return (
-        <div className="background" style={{backgroundImage: `url(${backgroundImage})`}}>
+        <div className="ImageBackground" style={{backgroundImage: `url(${backgroundImage})`}}>
             <div className="mask" style={maskStyle}>
                 { children }
             </div>

@@ -11,6 +11,7 @@ env:
   GH_USER: lucystevens
   DOCKERHUB_USERNAME: lucystevens
   PROJECT_NAME: react-template
+  PORT: 8005
 
 jobs:
   build:
@@ -80,7 +81,7 @@ jobs:
           username: deployer
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.SSH_PASSPHRASE }}
-          script: /services/docker-deploy.sh ${{ env.DOCKERHUB_USERNAME }}/${{ env.PROJECT_NAME }}:${{ env.PROJECT_VERSION }} -p 8002:80
+          script: /services/docker-deploy.sh ${{ env.DOCKERHUB_USERNAME }}/${{ env.PROJECT_NAME }}:${{ env.PROJECT_VERSION }} -p ${{ env.PORT }}:80
 
       # Create a release and upload the tar to it
 

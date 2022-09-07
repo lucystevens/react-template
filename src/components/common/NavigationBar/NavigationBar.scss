@@ -1,4 +1,4 @@
-.navigation-bar {
+.NavigationBar {
   padding-right: 1rem;
   background-color: black;
   color: white;
@@ -10,8 +10,97 @@
     background-repeat: no-repeat;
     background-position: left center;
     margin-left: 1rem;
+    cursor: pointer;
   }
 
+  .dropdown-icon {
+    position: absolute;
+  }
+
+  // sizing styles
+  &.nav-xs {
+    height: 20px;
+
+    .nav-option {
+      font-size: 1rem;
+    }
+
+    .full-menu .dropdown-icon {
+      top: 22.5px;
+      font-size: 1rem;
+    }
+
+    .dropdown {
+      top: 36px;
+    }
+  }
+
+  &.nav-sm {
+    height: 40px;
+
+    .nav-option {
+      font-size: 1.5rem;
+    }
+
+    .full-menu .dropdown-icon {
+      top: 35px;
+    }
+
+    .dropdown {
+      top: 56px;
+    }
+  }
+
+  
+  &.nav-md {
+    height: 60px;
+
+    .nav-option {
+      font-size: 2rem;
+    }
+
+    .full-menu .dropdown-icon {
+      top: 50px;
+    }
+
+    .dropdown {
+      top: 76px;
+    }
+  }
+
+  &.nav-lg {
+    height: 80px;
+
+    .nav-option {
+      font-size: 2.5rem;
+    }
+
+    .full-menu .dropdown-icon {
+      top: 70px;
+    }
+
+    .dropdown {
+      top: 96px;
+    }
+  }
+
+  &.nav-xl {
+    height: 100px;
+
+    .nav-option {
+      font-size: 3rem;
+    }
+
+    .full-menu .dropdown-icon {
+      top: 85px;
+    }
+
+    .dropdown {
+      top: 116px;
+    }
+  }
+
+  // desktop menu styles
   .full-menu {
     display: flex;
 
@@ -34,7 +123,6 @@
         position: absolute;
         display:flex;
         flex-direction:column;
-        top: 6rem;
         background-color: black;
         align-items: flex-end;
         z-index: 10
@@ -42,6 +130,7 @@
     }
   }
 
+  // mobile menu styles
   .small-menu {
     display: none;
 
@@ -57,14 +146,6 @@
       align-self: center;
       top: 60px;
     }
-  }
-
-  .dropdown-icon {
-    position: absolute;
-  }
-
-  .nav-option.MuiButton-text {
-    font-size: 2rem;
   }
 }
 
